@@ -31,7 +31,7 @@ app.put("/posts/:id", (request, response) => {
     const { id } = request.params;
     const { title, desc } = request.body;
 
-    const postIndex = posts.findIndex((post) => post.id == id);
+    const postIndex = posts.findIndex(({ id }) => id == id);
 
     if (postIndex < 0) {
         return response.status(404).json({ error: "Post not found" });
@@ -39,11 +39,21 @@ app.put("/posts/:id", (request, response) => {
 
     posts[postIndex] = { id, title, desc };
 
-    response.json(posts[postIndex]);
+    return response.json("Post editado com sucesso!");
 });
 
-app.delete("/", (request, response) => {
-    console.log("DELETE");
+app.delete("/posts/:id", (request, response) => {
+    const { id } = request.params;
+
+    const postIndex = posts.findIndex(({ id }) => id == id);
+
+    if (postIndex < 0) {
+        return response.status(404).json({ error: "Post not found" });
+    }
+
+    posts.splice(postIndex, 1);
+
+    return response.json("Post deletado com sucesso!");
 });
 
 app.listen(port, () => {
