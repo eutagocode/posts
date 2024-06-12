@@ -27,7 +27,20 @@ app.post("/posts/new", (request, response) => {
     return response.json(post);
 });
 
-app.put("/posts/:id", (request, response) => {});
+app.put("/posts/:id", (request, response) => {
+    const { id } = request.params;
+    const { title, desc } = request.body;
+
+    const postIndex = posts.findIndex((post) => post.id == id);
+
+    if (postIndex < 0) {
+        return response.status(404).json({ error: "Post not found" });
+    }
+
+    posts[postIndex] = { id, title, desc };
+
+    response.json(posts[postIndex]);
+});
 
 app.delete("/", (request, response) => {
     console.log("DELETE");
