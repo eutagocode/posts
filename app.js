@@ -5,6 +5,8 @@ const port = 9000;
 
 app.use(express.json());
 
+app.use("/", express.static(path.join(__dirname, "public")));
+
 app.use("/api", routes);
 
 app.listen(port, () => {
