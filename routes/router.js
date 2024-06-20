@@ -1,6 +1,7 @@
 const express = require("express");
-const router = express.Router();
+const cors = require("cors");
 const uuid = require("uuid").v4;
+const router = express.Router();
 
 const posts = [
     {
@@ -9,6 +10,8 @@ const posts = [
         desc: "O Github é o melhor",
     },
 ];
+
+router.use(cors());
 
 router.get("/posts", (request, response) => {
     return response.json(JSON.stringify(posts));
