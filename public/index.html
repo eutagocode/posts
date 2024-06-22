@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/index.css" />
+        <title>Posts</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header-page">
+                <h1 class="title">Posts</h1>
+                <button onclick="showModal()">
+                    <img
+                        src="./assets/docs/images/plus.svg"
+                        alt="ícone de mais"
+                    />
+                    <p>Add Post</p>
+                </button>
+            </header>
+            <main id="all-posts" class="main-page"></main>
+            <div id="modal" class="modal">
+                <form>
+                    <h2>Adicionar Post</h2>
+                    <input
+                        id="input-title"
+                        class="input-title"
+                        type="text"
+                        placeholder="Digite o título do post"
+                    />
+                    <input
+                        id="input-text"
+                        class="input-text"
+                        type="text"
+                        placeholder="Digite o texto do post"
+                    />
+                    <button type="button" onclick="newPost()">Adicionar</button>
+                </form>
+            </div>
+        </div>
+        <script src="./assets/js/index.js"></script>
+    </body>
+</html>
