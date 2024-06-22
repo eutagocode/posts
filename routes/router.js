@@ -6,21 +6,21 @@ const router = express.Router();
 const posts = [
     {
         id: uuid(),
-        title: "Github",
-        desc: "O Github é o melhor",
+        title: "Posts",
+        text: "Uma aplicação backend e frontend utilizando express para criação do meu servidor e html, css e javascript para atuar no frontend.",
     },
 ];
 
-router.use(cors());
+router.use(cors({ origin: "http://localhost:9000" }));
 
 router.get("/posts", (request, response) => {
     return response.json(JSON.stringify(posts));
 });
 
 router.post("/posts/new", (request, response) => {
-    const { title, desc } = request.body;
+    const { title, text } = request.body;
 
-    const post = { id: uuid(), title, desc };
+    const post = { id: uuid(), title, text };
 
     posts.push(post);
 
@@ -29,7 +29,7 @@ router.post("/posts/new", (request, response) => {
 
 router.put("/posts/:id", (request, response) => {
     const { id } = request.params;
-    const { title, desc } = request.body;
+    const { title, text } = request.body;
 
     const postIndex = posts.findIndex((post) => post.id === id);
 
@@ -37,7 +37,7 @@ router.put("/posts/:id", (request, response) => {
         return response.status(404).json({ error: "Post not found" });
     }
 
-    posts[postIndex] = { id, title, desc };
+    posts[postIndex] = { id, title, text };
 
     return response.json(posts);
 });

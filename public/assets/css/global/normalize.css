@@ -14,4 +14,5 @@ body {
     font-size: 16px;
     background-color: var(--color-black) !important;
     color: var(--color-gray1);
+    padding: 1rem;
 }

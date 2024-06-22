@@ -1,0 +1,4 @@
+@import url("./global/global.css");
+@import url("./pages/index/partials/header.css");
+@import url("./pages/index/partials/main.css");
+@import url("./pages/index/partials/modal.css");
