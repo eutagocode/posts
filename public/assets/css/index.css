@@ -1,4 +1,13 @@
 @import url("./global/global.css");
-@import url("./pages/index/partials/header.css");
+@import url("./pages/index/partials/section-user.css");
 @import url("./pages/index/partials/main.css");
-@import url("./pages/index/partials/modal.css");
+
+.container {
+    max-width: 1320px;
+    width: 100%;
+    padding-top: 2rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template: auto / 360px 1fr;
+    gap: 1rem;
+}
