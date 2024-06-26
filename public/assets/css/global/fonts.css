@@ -1,9 +1,19 @@
 @font-face {
-    font-family: "Figtree-SemiBold";
-    src: url("../../docs/fonts/Figtree-SemiBold.woff");
+    font-family: "Nunito-Medium";
+    src: url("../../docs/fonts/./Nunito-Medium.woff");
 }
 
 @font-face {
-    font-family: "Figtree-Bold";
-    src: url("../../docs/fonts/Figtree-Bold.woff");
+    font-family: "Nunito-SemiBold";
+    src: url("../../docs/fonts/Nunito-SemiBold.woff");
+}
+
+@font-face {
+    font-family: "Nunito-Bold";
+    src: url("../../docs/fonts/Nunito-Bold.woff");
+}
+
+@font-face {
+    font-family: "Nunito-ExtraBold";
+    src: url("../../docs/fonts/Nunito-ExtraBold.woff");
 }

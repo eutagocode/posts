@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
     outline: none;
     text-decoration: none;
     border: none;
@@ -12,7 +13,7 @@ body {
     width: 100%;
     height: 100%;
     font-size: 16px;
-    background-color: var(--color-black) !important;
-    color: var(--color-gray1);
+    background-color: var(--color-dark) !important;
+    color: var(--color-white);
     padding: 1rem;
 }
