@@ -8,36 +8,99 @@
     </head>
     <body>
         <div class="container">
-            <header class="header-page">
-                <h1 class="title">Posts</h1>
-                <button onclick="showModal()">
-                    <img
-                        src="./assets/docs/images/plus.svg"
-                        alt="ícone de mais"
-                    />
-                    <p>Add Post</p>
-                </button>
+            <header>
+                <nav>
+                    <a href="#">
+                        <img
+                            src="./assets/docs/images/home.svg"
+                            alt="ícone de casa"
+                        />
+                        <p>Início</p>
+                    </a>
+                    <a href="#">
+                        <img
+                            src="./assets/docs/images/world.svg"
+                            alt="ícone do planeta terra"
+                        />
+                        <p>Explorar</p>
+                    </a>
+                    <a href="#">
+                        <img
+                            src="./assets/docs/images/message.svg"
+                            alt="ícone de mensagem"
+                        />
+                        <p>Mensagens</p>
+                    </a>
+                    <a href="#">
+                        <img
+                            src="./assets/docs/images/bell.svg"
+                            alt="ícone de sino"
+                        />
+                        <p>Notificações</p>
+                    </a>
+                </nav>
             </header>
-            <main id="all-posts" class="main-page"></main>
-            <div id="modal" class="modal">
-                <form>
-                    <h2>Adicionar Post</h2>
-                    <input
-                        id="input-title"
-                        class="input-title"
-                        type="text"
-                        placeholder="Digite o título do post"
-                    />
-                    <input
-                        id="input-text"
-                        class="input-text"
-                        type="text"
-                        placeholder="Digite o texto do post"
-                    />
-                    <button type="button" onclick="newPost()">Adicionar</button>
-                </form>
-            </div>
+            <main>
+                <section class="profile-section">
+                    <div class="profile">
+                        <div class="profile-name">
+                            <img
+                                src="./assets/docs/images/user.svg"
+                                alt="ícone de usuário"
+                            />
+                            <h2>Thiago Luiz</h2>
+                            <p>@eutagocode</p>
+                        </div>
+                        <div class="profile-description">
+                            <p>Full-Stack Developer</p>
+                            <a href="#">
+                                <p>Posts</p>
+                                <p>5</p>
+                            </a>
+                            <a href="#">
+                                <p>Seguidores</p>
+                                <p>369</p>
+                            </a>
+                            <a href="#">
+                                <p>Seguindo</p>
+                                <p>44</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="posts-section">
+                    <form class="add-post-area">
+                        <textarea
+                            type="text"
+                            class="add-post-text"
+                            placeholder="No que você está pensando?"
+                        ></textarea>
+                        <button class="add-post-btn">Post</button>
+                    </form>
+                    <div class="posts">
+                        <article class="post">
+                            <header class="post-header">
+                                <img
+                                    src="./assets/docs/images/user.svg"
+                                    alt="imagem de usuário"
+                                />
+                                <p>Thiago Luiz</p>
+                                <p>-</p>
+                                <p class="date">27/06/2024</p>
+                            </header>
+                            <hr />
+                            <p class="post-text">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Praesentium exercitationem
+                                sunt delectus illo animi iure dolorem esse nisi,
+                                doloremque veritatis natus, illum debitis
+                                explicabo consequatur. Unde repudiandae
+                                laudantium dolorem earum!
+                            </p>
+                        </article>
+                    </div>
+                </section>
+            </main>
         </div>
-        <script src="./assets/js/index.js"></script>
     </body>
 </html>
