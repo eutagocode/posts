@@ -1,13 +1,14 @@
 @import url("./global/global.css");
-@import url("./pages/index/partials/section-user.css");
-@import url("./pages/index/partials/main.css");
+@import url("./pages/index/partials/header.css");
+@import url("./pages/index/partials/profile.css");
+@import url("./pages/index/partials/posts.css");
+/* @import url("./pages/index/partials/section-posts.css"); */
 
 .container {
     max-width: 1320px;
     width: 100%;
-    padding-top: 2rem;
+    height: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template: auto / 360px 1fr;
-    gap: 1rem;
+    grid-template: 100px auto / 100%;
 }
