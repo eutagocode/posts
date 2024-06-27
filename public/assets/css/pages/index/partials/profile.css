@@ -1,0 +1,79 @@
+main {
+    display: grid;
+    grid-template-columns: 344px 1fr;
+    grid-auto-rows: auto;
+    gap: 1rem;
+}
+
+.profile-section {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: 380px / 344px;
+    justify-content: center;
+    align-content: start;
+}
+
+.profile-section .profile {
+    padding: 3rem;
+    border-radius: 1rem;
+    background-color: var(--color-gray1);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 1.5rem;
+}
+
+.profile-section .profile .profile-name {
+    display: grid;
+    justify-content: center;
+    align-content: space-around;
+    gap: 1.3rem;
+    text-align: center;
+}
+
+.profile-section .profile .profile-name h2 {
+    font-family: var(--bold);
+    font-size: 1.5rem;
+    color: var(--color-white);
+    line-height: 1.8rem;
+}
+
+.profile-section .profile .profile-name p {
+    font-family: var(--semibold);
+    font-size: 1.1rem;
+    color: var(--color-gray4);
+    line-height: 1.5rem;
+}
+
+.profile-section .profile .profile-description {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-section .profile .profile-description > p {
+    grid-column: 4 / 1;
+    font-family: var(--medium);
+    color: var(--color-gray4);
+    font-size: 1rem;
+}
+
+.profile-section .profile .profile-description a {
+    display: grid;
+    gap: 0.6rem;
+    text-align: center;
+}
+
+.profile-section .profile .profile-description a p {
+    font-family: var(--medium);
+    color: var(--color-gray4);
+    font-size: 1rem;
+}
+
+.profile-section .profile .profile-description a p:nth-child(2) {
+    color: var(--color-gray3);
+}

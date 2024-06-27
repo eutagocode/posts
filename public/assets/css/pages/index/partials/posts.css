@@ -1,0 +1,100 @@
+.posts-section {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: 170px auto / 100%;
+    align-content: start;
+    gap: 1rem;
+}
+
+.posts-section .add-post-area {
+    background-color: var(--color-gray1);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.posts-section .add-post-area .add-post-text {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-gray2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: var(--semibold);
+    color: var(--color-gray3);
+    font-size: 1.3rem;
+    resize: none;
+    position: relative;
+}
+
+.posts-section .add-post-area .add-post-text::placeholder {
+    color: var(--color-gray3);
+}
+
+.posts-section .add-post-area .add-post-btn {
+    width: 6rem;
+    height: 2.5rem;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    font-family: var(--semibold);
+    font-size: 1.2rem;
+    border-radius: 50rem;
+    cursor: pointer;
+    position: absolute;
+    left: 78%;
+    top: 25%;
+}
+
+.posts-section .posts {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: repeat(auto-fit, minmax(200px, auto));
+    gap: 1rem;
+}
+
+.posts-section .posts .post {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-gray1);
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 1rem;
+}
+
+.posts-section .posts .post .post-header {
+    height: 3rem;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.posts-section .posts .post .post-header img {
+    width: 3rem;
+}
+
+.posts-section .posts .post .post-header p {
+    color: var(--color-white);
+    font-family: var(--bold);
+    font-size: 1rem;
+}
+
+.posts-section .posts .post .post-header .date {
+    font-family: var(--medium);
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-gray2);
+}
+
+.posts-section .posts .post .post-text {
+    word-wrap: break-word;
+    word-break: break-all;
+    color: var(--color-gray3);
+    font-family: var(--medium);
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
