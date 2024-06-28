@@ -1,51 +1,56 @@
-const posts = document.getElementById("all-posts");
-const modal = document.getElementById("modal");
-const inputTitle = document.getElementById("input-title");
-const inputText = document.getElementById("input-text");
+const posts = document.getElementById("posts");
+const addPostInput = document.getElementById("addPostInput");
+const postsCounter = document.getElementById("postsCounter");
 
-const showModal = () => {
-    modal.style.display == "grid"
-        ? (modal.style.display = "none")
-        : (modal.style.display = "grid");
-};
+const createPost = (text, id) => {
+    const date = new Date();
+    let month = date.getMonth();
 
-const createPost = (title, text, id) => {
-    return `<article id="${id}" class="post"><header class="header-post"><h2 class="title">${title}</h2><nav><div class="dots"></div><div class="dots"></div><div class="dots"></div></nav></header><p class="text">${text}</p></article>`;
+    if (
+        month == 1 ||
+        month == 2 ||
+        month == 3 ||
+        month == 4 ||
+        month == 5 ||
+        month == 6 ||
+        month == 7 ||
+        month == 8 ||
+        month == 9
+    ) {
+        month = `0${date.getMonth()}`;
+    }
+
+    return `<article id="${id}" class="post"><header class="post-header"><img src="./assets/docs/images/user.svg"alt="imagem de usuário"/><p>Thiago Luiz</p><p>-</p><p class="date">${date.getDate()}/${month}/${date.getFullYear()}</p></header><hr /><p class="post-text">${text}</p></article>`;
 };
 
 const getPosts = async () => {
-    let allPosts = "";
-
-    const response = await fetch("http://localhost:9000/api/posts");
-
+    const api = "http://localhost:9000/api/posts/";
+    const response = await fetch(api);
     const json = await response.json();
-
     const data = JSON.parse(json);
 
+    let allPosts = "";
+
     data.map((post) => {
-        allPosts += createPost(post.title, post.text, post.id);
+        allPosts += createPost(post.text, post.id);
     });
 
+    postsCounter.innerHTML = data.length;
     posts.innerHTML = allPosts;
 };
 
 const newPost = async () => {
-    const title = inputTitle.value;
-    const text = inputText.value;
+    const post = { text: addPostInput.value };
 
-    await fetch("http://localhost:9000/api/posts/new", {
+    const api = "http://localhost:9000/api/posts/new";
+    await fetch(api, {
         method: "post",
         headers: new Headers({ "content-type": "application/json" }),
-        body: JSON.stringify({ title, text }),
+        body: JSON.stringify(post),
     });
-
-    if (inputTitle.value == "" || inputText.value == "") return;
-
     getPosts();
 
-    inputTitle.value = "";
-    inputText.value = "";
-    showModal();
+    addPostInput.value = "";
 };
 
 window.addEventListener("DOMContentLoaded", getPosts);
