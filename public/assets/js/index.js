@@ -25,32 +25,41 @@ const createPost = (text, id) => {
 
 const getPosts = async () => {
     const api = "http://localhost:9000/api/posts/";
-    const response = await fetch(api);
-    const json = await response.json();
-    const data = JSON.parse(json);
+    try {
+        const response = await fetch(api);
+        const json = await response.json();
+        const data = JSON.parse(json);
+        let allPosts = "";
 
-    let allPosts = "";
+        data.map((post) => {
+            allPosts += createPost(post.text, post.id);
+        });
 
-    data.map((post) => {
-        allPosts += createPost(post.text, post.id);
-    });
-
-    postsCounter.innerHTML = data.length;
-    posts.innerHTML = allPosts;
+        postsCounter.innerHTML = data.length;
+        posts.innerHTML = allPosts;
+    } catch (error) {
+        throw new Error("Ops, algo deu errado!");
+    }
 };
 
 const newPost = async () => {
-    const post = { text: addPostInput.value };
+    try {
+        if (addPostInput == "") return;
 
-    const api = "http://localhost:9000/api/posts/new";
-    await fetch(api, {
-        method: "post",
-        headers: new Headers({ "content-type": "application/json" }),
-        body: JSON.stringify(post),
-    });
-    getPosts();
+        const post = { text: addPostInput.value };
 
-    addPostInput.value = "";
+        const api = "http://localhost:9000/api/posts/new";
+        await fetch(api, {
+            method: "post",
+            headers: new Headers({ "content-type": "application/json" }),
+            body: JSON.stringify(post),
+        });
+        getPosts();
+
+        addPostInput.value = "";
+    } catch (error) {
+        throw new Error("Ops, algo deu errado!");
+    }
 };
 
 window.addEventListener("DOMContentLoaded", getPosts);
