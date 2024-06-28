@@ -95,6 +95,6 @@ hr {
     word-break: break-all;
     color: var(--color-gray3);
     font-family: var(--medium);
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
 }
