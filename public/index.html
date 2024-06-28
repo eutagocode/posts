@@ -48,14 +48,14 @@
                                 src="./assets/docs/images/user.svg"
                                 alt="ícone de usuário"
                             />
-                            <h2>Thiago Luiz</h2>
-                            <p>@eutagocode</p>
+                            <h2>User Tester</h2>
+                            <p>@eutago</p>
                         </div>
                         <div class="profile-description">
                             <p>Full-Stack Developer</p>
                             <a href="#">
                                 <p>Posts</p>
-                                <p>5</p>
+                                <p id="postsCounter">5</p>
                             </a>
                             <a href="#">
                                 <p>Seguidores</p>
@@ -72,35 +72,22 @@
                     <form class="add-post-area">
                         <textarea
                             type="text"
+                            id="addPostInput"
                             class="add-post-text"
                             placeholder="No que você está pensando?"
                         ></textarea>
-                        <button class="add-post-btn">Post</button>
+                        <button
+                            type="button"
+                            onclick="newPost()"
+                            class="add-post-btn"
+                        >
+                            Post
+                        </button>
                     </form>
-                    <div class="posts">
-                        <article class="post">
-                            <header class="post-header">
-                                <img
-                                    src="./assets/docs/images/user.svg"
-                                    alt="imagem de usuário"
-                                />
-                                <p>Thiago Luiz</p>
-                                <p>-</p>
-                                <p class="date">27/06/2024</p>
-                            </header>
-                            <hr />
-                            <p class="post-text">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Praesentium exercitationem
-                                sunt delectus illo animi iure dolorem esse nisi,
-                                doloremque veritatis natus, illum debitis
-                                explicabo consequatur. Unde repudiandae
-                                laudantium dolorem earum!
-                            </p>
-                        </article>
-                    </div>
+                    <div id="posts" class="posts"></div>
                 </section>
             </main>
         </div>
+        <script src="./assets/js/index.js"></script>
     </body>
 </html>
