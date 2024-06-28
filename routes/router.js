@@ -3,13 +3,14 @@ const cors = require("cors");
 const uuid = require("uuid").v4;
 const router = express.Router();
 
-const posts = [
-    {
-        id: uuid(),
-        title: "Posts",
-        text: "Uma aplicação backend e frontend utilizando express para criação do meu servidor e html, css e javascript para atuar no frontend.",
-    },
-];
+class Posts {
+    constructor(text) {
+        this.id = uuid();
+        this.text = text;
+    }
+}
+
+const posts = [];
 
 router.use(cors({ origin: "http://localhost:9000" }));
 
@@ -18,9 +19,9 @@ router.get("/posts", (request, response) => {
 });
 
 router.post("/posts/new", (request, response) => {
-    const { title, text } = request.body;
+    const { text } = request.body;
 
-    const post = { id: uuid(), title, text };
+    const post = new Posts(text);
 
     posts.push(post);
 
@@ -29,7 +30,7 @@ router.post("/posts/new", (request, response) => {
 
 router.put("/posts/:id", (request, response) => {
     const { id } = request.params;
-    const { title, text } = request.body;
+    const { text } = request.body;
 
     const postIndex = posts.findIndex((post) => post.id === id);
 
@@ -37,7 +38,7 @@ router.put("/posts/:id", (request, response) => {
         return response.status(404).json({ error: "Post not found" });
     }
 
-    posts[postIndex] = { id, title, text };
+    posts[postIndex] = { id, text };
 
     return response.json(posts);
 });
