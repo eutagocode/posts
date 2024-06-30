@@ -1,6 +1,7 @@
 const posts = document.getElementById("posts");
 const addPostInput = document.getElementById("addPostInput");
 const postsCounter = document.getElementById("postsCounter");
+const addPostButton = document.getElementById("addPostButton");
 
 const createPost = (text, id) => {
     const date = new Date();
@@ -17,13 +18,13 @@ const createPost = (text, id) => {
         month == 8 ||
         month == 9
     ) {
-        month = `0${date.getMonth()}`;
+        month = `0${date.getMonth() + 1}`;
     }
 
-    return `<article id="${id}" class="post"><header class="post-header"><img src="./assets/docs/images/user.svg"alt="imagem de usuário"/><p>Thiago Luiz</p><p>-</p><p class="date">${date.getDate()}/${month}/${date.getFullYear()}</p></header><hr /><p class="post-text">${text}</p></article>`;
+    return `<article id="${id}" class="post"><header class="post-header"><div class="info-post"><img src="./assets/docs/images/user.svg"alt="imagem de usuário"/><p>Thiago Luiz</p><p>-</p><p class="date">${date.getDate()}/${month}/${date.getFullYear()}</p></div><div class="actions"><button onclick="editPost(this)" class="edit-post-button">Editar</button><button onclick="deletePost(this)" class="delete-post-button">Apagar</button></div></header><hr /><p class="post-text">${text}</p></article>`;
 };
 
-const getPosts = async () => {
+window.addEventListener("DOMContentLoaded", async () => {
     const api = "http://localhost:9000/api/posts/";
     try {
         const response = await fetch(api);
@@ -40,9 +41,9 @@ const getPosts = async () => {
     } catch (error) {
         throw new Error("Ops, algo deu errado!");
     }
-};
+});
 
-const newPost = async () => {
+addPostButton.addEventListener("click", async () => {
     try {
         if (addPostInput == "") return;
 
@@ -60,6 +61,12 @@ const newPost = async () => {
     } catch (error) {
         throw new Error("Ops, algo deu errado!");
     }
+});
+
+const editPost = (element) => {
+    console.log(element);
 };
 
-window.addEventListener("DOMContentLoaded", getPosts);
+const deletePost = (element) => {
+    console.log(element);
+};
