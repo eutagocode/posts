@@ -70,16 +70,17 @@
                 </section>
                 <section class="posts-section">
                     <form class="add-post-area">
-                        <textarea
+                        <input
+                            spellcheck="true"
                             type="text"
                             id="addPostInput"
                             class="add-post-text"
                             placeholder="No que você está pensando?"
-                        ></textarea>
+                        />
                         <button
-                            type="button"
-                            onclick="newPost()"
+                            type="submit"
                             class="add-post-btn"
+                            id="addPostButton"
                         >
                             Post
                         </button>
